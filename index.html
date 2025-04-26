@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Gallery</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="#home">MyBrand</a></div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Our Gallery</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+
+    <section id="products" class="container">
+        <h2>Our Products</h2>
+        <div class="grid" id="productGrid"></div>
+        <div class="pagination" id="pagination"></div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.</p>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Name" required />
+            <input type="email" placeholder="Email" required />
+            <textarea rows="4" placeholder="Your message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+            <button class="close-btn" id="closeBtn">Back</button>
+            <!-- dynamic content -->
+        </div>
+    </div>
+
+    <script>
+        // Navbar toggle
+        const navLinks = document.getElementById('navLinks');
+        document.getElementById('hamburger').onclick = () => navLinks.classList.toggle('open');
+
+        // Dummy products
+        const products = Array.from({ length: 23 }, (_, i) => ({ id: i + 1, title: `Product ${i + 1}`, img: 'https://via.placeholder.com/300', desc: 'Lorem ipsum dolor sit amet.' }));
+        const perPage = 8; let currentPage = 1;
+        const grid = document.getElementById('productGrid');
+        const pagination = document.getElementById('pagination');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modalContent');
+        const closeBtn = document.getElementById('closeBtn');
+
+        function renderProducts() {
+            grid.innerHTML = '';
+            const start = (currentPage - 1) * perPage;
+            const pageItems = products.slice(start, start + perPage);
+            pageItems.forEach(p => {
+                const div = document.createElement('div'); div.className = 'product';
+                div.innerHTML = `<img src='${p.img}' alt='${p.title}'/><h3>${p.title}</h3>`;
+                div.onclick = () => showDetail(p);
+                grid.appendChild(div);
+            });
+            renderPagination();
+        }
+        function renderPagination() {
+            pagination.innerHTML = '';
+            const pageCount = Math.ceil(products.length / perPage);
+            for (let i = 1; i <= pageCount; i++) {
+                const btn = document.createElement('button'); btn.textContent = i;
+                if (i === currentPage) btn.style.opacity = '0.6';
+                btn.onclick = () => { currentPage = i; renderProducts(); };
+                pagination.appendChild(btn);
+            }
+        }
+        function showDetail(p) {
+            modalContent.innerHTML = `<button class='close-btn' id='closeBtn'>Back</button><img src='${p.img}' alt='${p.title}'/><h3>${p.title}</h3><p>${p.desc.repeat(3)}</p>`;
+            modal.style.display = 'flex';
+            modalContent.querySelector('#closeBtn').onclick = () => modal.style.display = 'none';
+        }
+        renderProducts();
+
+        // close on outside click
+        modal.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+[
+    {
+      "id": 1,
+      "name": "Product One",
+      "shortDesc": "Lorem ipsum dolor sit amet.",
+      "fullDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor.",
+      "price": 19.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+1",
+      "category": "Category A"
+    },
+    {
+      "id": 2,
+      "name": "Product Two",
+      "shortDesc": "Pellentesque habitant morbi.",
+      "fullDesc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+      "price": 24.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+2",
+      "category": "Category B"
+    },
+    {
+      "id": 3,
+      "name": "Product Three",
+      "shortDesc": "Vestibulum tortor quam.",
+      "fullDesc": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.",
+      "price": 14.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+3",
+      "category": "Category A"
+    },
+    {
+      "id": 4,
+      "name": "Product Four",
+      "shortDesc": "Aenean ultricies mi vitae.",
+      "fullDesc": "Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+      "price": 39.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+4",
+      "category": "Category C"
+    },
+    {
+      "id": 5,
+      "name": "Product Five",
+      "shortDesc": "Quisque sit amet est et.",
+      "fullDesc": "Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi.",
+      "price": 9.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+5",
+      "category": "Category B"
+    },
+    {
+      "id": 6,
+      "name": "Product Six",
+      "shortDesc": "Nam dui mi, tincidunt quis.",
+      "fullDesc": "Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
+      "price": 29.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+6",
+      "category": "Category A"
+    },
+    {
+      "id": 7,
+      "name": "Product Seven",
+      "shortDesc": "Phasellus ultrices nulla quis.",
+      "fullDesc": "Phasellus ultrices nulla quis nibh. Quisque a lectus.",
+      "price": 49.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+7",
+      "category": "Category C"
+    },
+    {
+      "id": 8,
+      "name": "Product Eight",
+      "shortDesc": "Donec consectetuer ligula vulputate.",
+      "fullDesc": "Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam.",
+      "price": 34.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+8",
+      "category": "Category B"
+    },
+    {
+      "id": 9,
+      "name": "Product Nine",
+      "shortDesc": "Integer imperdiet lectus quis.",
+      "fullDesc": "Integer imperdiet lectus quis justo. Suspendisse potenti.",
+      "price": 12.99,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+9",
+      "category": "Category A"
+    },
+    {
+      "id": 10,
+      "name": "Product Ten",
+      "shortDesc": "Ut varius tincidunt libero.",
+      "fullDesc": "Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis.",
+      "price": 27.50,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+10",
+      "category": "Category C"
+    },
+    {
+      "id": 11,
+      "name": "Product Eleven",
+      "shortDesc": "Cras elementum ultrices.",
+      "fullDesc": "Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue.",
+      "price": 17.00,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+11",
+      "category": "Category B"
+    },
+    {
+      "id": 12,
+      "name": "Product Twelve",
+      "shortDesc": "Sed consequat, leo eget.",
+      "fullDesc": "Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
+      "price": 22.00,
+      "imageUrl": "https://via.placeholder.com/300x200?text=Product+12",
+      "category": "Category A"
+    }
+  ]
+  

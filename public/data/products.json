@@ -5,7 +5,7 @@
       "shortDesc": "Lorem ipsum dolor sit amet.",
       "fullDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor.",
       "price": 19.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+1",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category A"
     },
     {
@@ -14,7 +14,7 @@
       "shortDesc": "Pellentesque habitant morbi.",
       "fullDesc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
       "price": 24.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+2",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category B"
     },
     {
@@ -23,7 +23,7 @@
       "shortDesc": "Vestibulum tortor quam.",
       "fullDesc": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.",
       "price": 14.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+3",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category A"
     },
     {
@@ -32,7 +32,7 @@
       "shortDesc": "Aenean ultricies mi vitae.",
       "fullDesc": "Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
       "price": 39.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+4",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category C"
     },
     {
@@ -41,7 +41,7 @@
       "shortDesc": "Quisque sit amet est et.",
       "fullDesc": "Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi.",
       "price": 9.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+5",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category B"
     },
     {
@@ -50,7 +50,7 @@
       "shortDesc": "Nam dui mi, tincidunt quis.",
       "fullDesc": "Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
       "price": 29.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+6",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category A"
     },
     {
@@ -59,7 +59,7 @@
       "shortDesc": "Phasellus ultrices nulla quis.",
       "fullDesc": "Phasellus ultrices nulla quis nibh. Quisque a lectus.",
       "price": 49.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+7",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category C"
     },
     {

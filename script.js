@@ -1,48 +1,39 @@
-let currentPage = 1;
-const perPage = 6;
-let allProducts = [];
+let currentPage = 1, perPage = 6, allProducts = [];
 
-// 1) load & render
+// hamburger toggle
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// load & render
 async function loadProducts() {
   const res = await fetch('public/data/products.json');
   allProducts = await res.json();
-  console.log(allProducts);
   renderPage(currentPage);
   renderPagination();
 }
 
-// 2) render the grid into the element with class .products-grid
 function renderPage(page) {
   const start = (page - 1) * perPage;
-  const pageItems = allProducts.slice(start, start + perPage);
-  const grid = document.querySelector('.products-grid');
-  grid.innerHTML = pageItems
-    .map(
-      p => `
+  const items = allProducts.slice(start, start + perPage);
+  document.querySelector('.products-grid').innerHTML = items.map(p => `
     <div class="product-card" onclick="showDetail(${p.id})">
       <img src="${p.imageUrl}" alt="${p.name}">
       <h4>${p.name}</h4>
       <p>${p.shortDesc}</p>
-    </div>`
-    )
-    .join('');
+    </div>`).join('');
 }
 
-// 3) render page-buttons into the element with class .pagination
 function renderPagination() {
-  const totalPages = Math.ceil(allProducts.length / perPage);
-  const pagEl = document.querySelector('.pagination');
-  pagEl.innerHTML = Array.from({ length: totalPages }, (_, i) =>
-    `<button onclick="goToPage(${i + 1})">${i + 1}</button>`
-  ).join('');
+  const total = Math.ceil(allProducts.length / perPage);
+  document.querySelector('.pagination').innerHTML =
+    Array.from({ length: total }, (_, i) => `<button onclick="goToPage(${i + 1})">${i + 1}</button>`).join('');
 }
 
 function goToPage(n) {
-  currentPage = n;
-  renderPage(n);
+  currentPage = n; renderPage(n);
 }
 
-// 4) show detail inside the modal-content (which now also has .product-detail)
 function showDetail(id) {
   const p = allProducts.find(x => x.id === id);
   const detail = document.querySelector('.product-detail');
@@ -51,17 +42,13 @@ function showDetail(id) {
     <h2>${p.name}</h2>
     <img src="${p.imageUrl}" alt="${p.name}">
     <p>${p.fullDesc}</p>
-    <p>Price: $${p.price}</p>
-  `;
-  // display the modal
+    <p><strong>Price:</strong> $${p.price}</p>`;
   document.getElementById('modal').style.display = 'flex';
-  // re-attach the close handler to the newly rendered button
-  detail.querySelector('#closeBtn').addEventListener('click', closeDetail);
+  detail.querySelector('#closeBtn').onclick = closeDetail;
 }
 
 function closeDetail() {
   document.getElementById('modal').style.display = 'none';
 }
 
-// 5) kick everything off
 document.addEventListener('DOMContentLoaded', loadProducts);

@@ -5,65 +5,93 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Gallery</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p1CmXg8Vl+Y5bQkTg0Q9wk5E3DtRAkVeP+vMxkaDDl2qcN2BkxjS3N6OyYee+iw1v8+g5Yl5Y9+Xw3xZ+7XKkg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
+
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo"><a href="#home">MyBrand</a></div>
-                <div class="nav-links" id="navLinks">
-                    <a href="#home">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </nav>
+        <div class="container nav-container">
+            <div class="logo"><a href="#home">BMart</a></div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </header>
 
-    <section id="home">
-        <h1>Welcome to Our Gallery</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </section>
+    <main>
+        <section id="home" class="section-hero">
+            <h1>Welcome to BMart</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
 
-    <section id="products" class="container">
-        <h2>Our Products</h2>
-        <div id="productGrid" class="grid products-grid"></div>
-        <div class="pagination" id="pagination"></div>
-    </section>
+        <section id="products" class="container section">
+            <h2>Our Products</h2>
+            <div class="products-grid" id="productGrid"></div>
+            <div class="pagination" id="pagination"></div>
+        </section>
 
-    <section id="about" class="container">
-        <h2>About Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.</p>
-    </section>
+        <section id="about" class="container section">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+        </section>
 
-    <section id="contact" class="container">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Name" required />
-            <input type="email" placeholder="Email" required />
-            <textarea rows="4" placeholder="Your message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <section id="contact" class="container section">
 
-    <!-- Modal -->
+            <div class="connect">
+                <p>Connect with us</p>
+                <a href="mailto:hello@bmart.com" class="email-link">
+                    <i class="fa-regular fa-envelope"></i> hello@bmart.com
+                </a>
+                <div class="social-links">
+                    <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f">Facebook</i>
+                    </a>
+                    <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter">Twitter</i>
+                    </a>
+                    <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram">Instagram</i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in">Linkedin</i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <div class="modal" id="modal">
         <div class="modal-content product-detail" id="modalContent">
             <button class="close-btn" id="closeBtn">Back</button>
-            <!-- dynamic content -->
         </div>
     </div>
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

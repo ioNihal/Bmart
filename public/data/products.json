@@ -77,7 +77,7 @@
       "shortDesc": "Integer imperdiet lectus quis.",
       "fullDesc": "Integer imperdiet lectus quis justo. Suspendisse potenti.",
       "price": 12.99,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+9",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category A"
     },
     {
@@ -86,7 +86,7 @@
       "shortDesc": "Ut varius tincidunt libero.",
       "fullDesc": "Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis.",
       "price": 27.50,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+10",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category C"
     },
     {
@@ -95,7 +95,7 @@
       "shortDesc": "Cras elementum ultrices.",
       "fullDesc": "Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue.",
       "price": 17.00,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+11",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category B"
     },
     {
@@ -104,7 +104,7 @@
       "shortDesc": "Sed consequat, leo eget.",
       "fullDesc": "Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
       "price": 22.00,
-      "imageUrl": "https://via.placeholder.com/300x200?text=Product+12",
+      "imageUrl": "https://picsum.photos/id/227/200/300",
       "category": "Category A"
     }
   ]

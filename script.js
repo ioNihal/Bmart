@@ -3,7 +3,7 @@ let currentPage = 1;
   let allProducts = [];
 
   async function loadProducts() {
-    const res = await fetch('mock-data/products.json');
+    const res = await fetch('data/products.json');
     allProducts = await res.json();
     renderPage(currentPage);
     renderPagination();

@@ -63,51 +63,7 @@
         </div>
     </div>
 
-    <script>
-        // Navbar toggle
-        const navLinks = document.getElementById('navLinks');
-        document.getElementById('hamburger').onclick = () => navLinks.classList.toggle('open');
-
-        // Dummy products
-        const products = Array.from({ length: 23 }, (_, i) => ({ id: i + 1, title: `Product ${i + 1}`, img: 'https://via.placeholder.com/300', desc: 'Lorem ipsum dolor sit amet.' }));
-        const perPage = 8; let currentPage = 1;
-        const grid = document.getElementById('productGrid');
-        const pagination = document.getElementById('pagination');
-        const modal = document.getElementById('modal');
-        const modalContent = document.getElementById('modalContent');
-        const closeBtn = document.getElementById('closeBtn');
-
-        function renderProducts() {
-            grid.innerHTML = '';
-            const start = (currentPage - 1) * perPage;
-            const pageItems = products.slice(start, start + perPage);
-            pageItems.forEach(p => {
-                const div = document.createElement('div'); div.className = 'product';
-                div.innerHTML = `<img src='${p.img}' alt='${p.title}'/><h3>${p.title}</h3>`;
-                div.onclick = () => showDetail(p);
-                grid.appendChild(div);
-            });
-            renderPagination();
-        }
-        function renderPagination() {
-            pagination.innerHTML = '';
-            const pageCount = Math.ceil(products.length / perPage);
-            for (let i = 1; i <= pageCount; i++) {
-                const btn = document.createElement('button'); btn.textContent = i;
-                if (i === currentPage) btn.style.opacity = '0.6';
-                btn.onclick = () => { currentPage = i; renderProducts(); };
-                pagination.appendChild(btn);
-            }
-        }
-        function showDetail(p) {
-            modalContent.innerHTML = `<button class='close-btn' id='closeBtn'>Back</button><img src='${p.img}' alt='${p.title}'/><h3>${p.title}</h3><p>${p.desc.repeat(3)}</p>`;
-            modal.style.display = 'flex';
-            modalContent.querySelector('#closeBtn').onclick = () => modal.style.display = 'none';
-        }
-        renderProducts();
-
-        // close on outside click
-        modal.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+    <script src="./script.js">
     </script>
 </body>
 

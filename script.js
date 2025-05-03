@@ -1,13 +1,23 @@
 let currentPage = 1,
-    perPage = 6,
+    perPage     = 6,
     allProducts = [];
 
-// hamburger toggle
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
+// Wrap all DOM‑dependent wiring in DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  // hamburger toggle (guarded)
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  // load & render for index or detail
+  loadProducts();
 });
 
-// load & render for index or detail
+
 async function loadProducts() {
   const res = await fetch('public/data/products.json');
   allProducts = await res.json();
@@ -20,11 +30,13 @@ async function loadProducts() {
   }
 }
 
-// index: render grid
+
+// index: render grid of cards linking to product.html?id=<id>
 function renderPage(page) {
   const start = (page - 1) * perPage;
   const items = allProducts.slice(start, start + perPage);
-  document.querySelector('.products-grid').innerHTML = items.map(p => `
+  const grid  = document.querySelector('.products-grid');
+  grid.innerHTML = items.map(p => `
     <a class="product-card" href="product.html?id=${p.id}">
       <img src="${p.imageUrl}" alt="${p.name}">
       <h4>${p.name}</h4>
@@ -35,8 +47,10 @@ function renderPage(page) {
 
 function renderPagination() {
   const total = Math.ceil(allProducts.length / perPage);
-  document.querySelector('.pagination').innerHTML =
-    Array.from({ length: total }, (_, i) => `<button onclick="goToPage(${i + 1})">${i + 1}</button>`).join('');
+  const pg    = document.querySelector('.pagination');
+  pg.innerHTML = Array.from({ length: total }, (_, i) =>
+    `<button onclick="goToPage(${i + 1})">${i + 1}</button>`
+  ).join('');
 }
 
 function goToPage(n) {
@@ -44,11 +58,12 @@ function goToPage(n) {
   renderPage(n);
 }
 
-// detail: parse ID & render
+
+// product.html: parse ID & render detail + share
 function renderDetailPage() {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'));
-  const p = allProducts.find(x => x.id === id);
+  const params    = new URLSearchParams(window.location.search);
+  const id        = parseInt(params.get('id'));
+  const p         = allProducts.find(x => x.id === id);
   const container = document.getElementById('productDetail');
 
   if (!p) {
@@ -65,11 +80,10 @@ function renderDetailPage() {
     <button id="shareBtn">Share</button>
   `;
 
+  // share-button wiring
   document.getElementById('shareBtn').addEventListener('click', () => {
     navigator.clipboard.writeText(window.location.href)
       .then(() => alert('Link copied to clipboard!'))
       .catch(err => console.error('Copy failed', err));
   });
 }
-
-document.addEventListener('DOMContentLoaded', loadProducts);

@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Gallery</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse BMart’s selection of fresh juices and more. Edit products via JSON and share individual product links." />
+  <title>BMart – Product Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-p1CmX...7XKkg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,98 +15,89 @@
 
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo"><a href="#home">BMart</a></div>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+  <header>
+    <div class="container nav-container">
+      <div class="logo"><a href="#home">BMart</a></div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="section-hero">
+      <h1>Welcome to BMart</h1>
+      <p>Discover our handpicked selection of the freshest juices and snacks.</p>
+      <button class="cta-btn" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">
+        Shop Now
+      </button>
+    </section>
+
+    <section id="products" class="container section">
+      <h2>Our Products</h2>
+      <div class="products-grid" id="productGrid"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+    <section id="about" class="container section">
+        <h2>About Us</h2>
+        <p>
+          At BMart, we believe that healthy living starts with simple, fresh choices. Founded with a passion for wellness, our team is dedicated to sourcing the finest ingredients to bring you juices that not only taste amazing but also fuel your body with essential nutrients.
+        </p>
+        <p>
+          Our journey began in a small kitchen, blending fruits and experimenting with flavors. Today, BMart has grown into a trusted name known for quality and freshness. We handpick every fruit and vegetable, ensuring our juices are free from additives, artificial colors, and preservatives.
+        </p>
+        <p>
+          From exotic blends like mango-ginger fusion to timeless classics like orange and apple, we craft each bottle with care. Our mission is to bring you refreshment with purpose—supporting your active lifestyle with every sip.
+        </p>
+        <p>
+          BMart isn’t just about juice—it’s about community. We believe in sustainable practices, supporting local farmers, and minimizing our environmental footprint. As we grow, our commitment to these values only gets stronger.
+        </p>
+        <p>
+          Whether you’re shopping online or browsing our ever-expanding gallery, we make it easy to discover your favorites, share product links, and stay connected with our latest offerings.
+        </p>
+      </section>
+      
+      <section id="contact" class="container section contact-section">
+        <h2>Connect With Us</h2>
+        <p>If you have any questions, suggestions, or just want to say hello, we’d love to hear from you!</p>
+        
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <a href="mailto:hello@bmart.com" class="email-link">
+              <i class="fa-regular fa-envelope"></i> hello@bmart.com
+            </a>
+          </div>
+      
+          <div class="contact-card">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i> Facebook
+              </a>
+              <a href="https://twitter.com/yourpage" target="_blank" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i> Twitter
+              </a>
+              <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <!-- Add more if needed -->
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+          </div>
         </div>
-    </header>
+      </section>
+      
+  </main>
 
-    <main>
-        <section id="home" class="section-hero">
-            <h1>Welcome to BMart</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
-
-        <section id="products" class="container section">
-            <h2>Our Products</h2>
-            <div class="products-grid" id="productGrid"></div>
-            <div class="pagination" id="pagination"></div>
-        </section>
-
-        <section id="about" class="container section">
-            <h2>About Us</h2>
-            <p>…</p>
-        </section>
-
-        <section id="contact" class="container section">
-            <div class="connect">
-                <p>Connect with us</p>
-                <a href="mailto:hello@bmart.com" class="email-link">
-                    <i class="fa-regular fa-envelope"></i> hello@bmart.com
-                </a>
-                <div class="social-links">
-                    <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f">Facebook</i>
-                    </a>
-                    <!-- …other social links… -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        let currentPage = 1, perPage = 6, allProducts = [];
-
-        // hamburger toggle
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('navLinks').classList.toggle('open');
-        });
-
-        // load & render
-        async function loadProducts() {
-            const res = await fetch('public/data/products.json');
-            allProducts = await res.json();
-            renderPage(currentPage);
-            renderPagination();
-        }
-
-        function renderPage(page) {
-            const start = (page - 1) * perPage;
-            const items = allProducts.slice(start, start + perPage);
-            document.getElementById('productGrid').innerHTML = items.map(p => `
-                <div class="product-card">
-                  <a href="product.html?id=${p.id}">
-                    <img src="${p.imageUrl}" alt="${p.name}">
-                    <h4>${p.name}</h4>
-                    <p>${p.shortDesc}</p>
-                  </a>
-                </div>
-            `).join('');
-        }
-
-        function renderPagination() {
-            const total = Math.ceil(allProducts.length / perPage);
-            document.getElementById('pagination').innerHTML =
-                Array.from({ length: total }, (_, i) => `<button onclick="goToPage(${i + 1})">${i + 1}</button>`).join('');
-        }
-
-        function goToPage(n) {
-            currentPage = n;
-            renderPage(n);
-        }
-
-        document.addEventListener('DOMContentLoaded', loadProducts);
-    </script>
-
+  <!-- script.js handles both index & product pages -->
+  <script src="script.js" defer></script>
 </body>
 
 </html>
